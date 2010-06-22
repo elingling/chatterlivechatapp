@@ -1,0 +1,6 @@
+<apex:page controller="RecipeOneController">
+<apex:form >
+<apex:inputText value="{!status}" id="status" maxlength="100" /> 
+<apex:commandLink style="button" value="Update User Status" action="{!doUserStatus}" style="button" />
+</apex:form>
+</apex:page>

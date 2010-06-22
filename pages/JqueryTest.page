@@ -1,0 +1,60 @@
+<apex:page sidebar="false" showHeader="false">
+    <apex:includeScript value="{!URLFOR($Resource.jquery, 'js/jquery-1.4.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jquery, 'js/jquery-ui-1.8.1.custom.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jquery, 'css/ui-lightness/jquery-ui-1.8.1.custom.css')}"/>
+ 
+    <script type="text/javascript">
+		/*This to make sure jQuery doesn't conflict with any 
+		  JS libraries salesforce.com might be using.*/
+		var j$ = jQuery.noConflict(); 
+		 
+		j$(document).ready(function(){
+			/*This block of code sets up our dialog 
+			  box and all of the options.*/
+		 
+			j$("#myCustomHelp").dialog({
+				autoOpen: false,
+				draggable: true,
+				modal: true,
+				resizable: false,
+				width: 500
+			});
+		 
+			/*This block of code attaches a click event to the help link
+			  to open the dialog box and prevent the default popup behavior.
+			  The first line finds the element with class "bPageTitle" and then 
+		          finds all of the "a" tags within this element and adds a click event. */
+		 			 
+		 	j$("#ninjaLink").click(function(){
+				j$("#myCustomHelp").dialog('open');				
+			});
+		 	
+		 	/*
+			j$(".bPageTitle a").click(function(e){
+				j$("#myCustomHelp").dialog('open');
+				e.preventDefault();
+			});
+			*/
+			
+		});
+		
+		function mywindow(url) {
+window.open(url,"_blank","toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,copyhistory=no,width=600,height=400,left=0,top=0,screen-X=0,screen-Y=0")
+}
+		
+
+    </script>        
+ 
+    <!-- This div represents our modal box that will pop up -->
+    <div id="myCustomHelp" title="Help" style="display: none;">
+        <p>You can put <strong>html</strong> here.</p>
+        <p>An image.</p>
+        <p>Or maybe a demo video.</p>
+    </div>
+ 
+    <apex:sectionHeader title="Help Link Override" help=""/>
+     <a id="ninjaLink" href="">NINJA ATTACK!</a>
+     <br/>
+     <a href="javascript:mywindow('http://www.google.com')">GOOGLE</a>
+     
+</apex:page>

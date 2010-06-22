@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <fields>
+        <fullName>Case__c</fullName>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Chat Managers</relationshipLabel>
+        <relationshipName>Chat_Managers</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Email_Address__c</fullName>
+        <label>Customer Email Address</label>
+        <type>Email</type>
+    </fields>
+    <fields>
+        <fullName>Customer_First_Name__c</fullName>
+        <label>Customer First Name</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Last_Name__c</fullName>
+        <label>Customer Last Name</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Is_Valid__c</fullName>
+        <formula>IF( Ping_Time_Delta__c &gt; 0.35, 0,1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Valid</label>
+        <precision>18</precision>
+        <scale>2</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Last_Pinged_Date__c</fullName>
+        <label>Last Pinged Date</label>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Ping_Time_Delta__c</fullName>
+        <formula>(NOW() - Last_Pinged_Date__c)*1000</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ping Time Delta</label>
+        <precision>18</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Support_User__c</fullName>
+        <label>Support User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Chat_Managers</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <label>Chat Manager</label>
+    <nameField>
+        <displayFormat>CM-{000000000}</displayFormat>
+        <label>Chat Manager Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Chat Managers</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

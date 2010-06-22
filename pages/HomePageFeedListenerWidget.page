@@ -1,0 +1,42 @@
+<apex:page controller="HomePageFeedListener" sidebar="false" showHeader="false">
+<apex:form >    
+	<apex:actionFunction name="sayHello" action="{!checkForLatestFeed}" rerender="logicPanel" />
+
+<br/>
+	<div style="width:300px;height:100px;overflow:auto;" id="chatContainer">        
+		<table id="chatTable" width="100%">
+			<tbody>		
+			</tbody>
+		</table> 		
+	</div>
+
+<apex:outputPanel id="logicPanel">
+	<script type="text/javascript">
+		var text= "{!redirectUrl}";
+		if(text != null && text != ''){			
+			var chatTable = document.getElementById('chatTable');
+			var tBody = chatTable.getElementsByTagName('tbody')[0];
+			var newTR = document.createElement('tr');
+			var newTD = document.createElement('td');
+			newTD.innerHTML = text;
+			newTR.appendChild (newTD);
+			tBody.appendChild(newTR);
+			var objDiv = document.getElementById("chatContainer");
+			objDiv.scrollTop = objDiv.scrollHeight;
+			
+			parent.location.href = text;
+		}
+	</script>
+</apex:outputPanel>
+
+<script type="text/javascript">	
+	function timedCount()
+	{
+	sayHello();	
+	t=setTimeout("timedCount()",2000);
+	}	
+	
+	timedCount();
+</script>
+</apex:form> 
+</apex:page>

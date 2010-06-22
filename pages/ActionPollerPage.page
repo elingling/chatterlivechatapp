@@ -1,0 +1,44 @@
+<apex:page controller="ActionPollerPageController">
+<script type="text/javascript">
+function doSomething(){
+}
+
+function addNewRow(tableRef){
+	var myTable = document.getElementById('myTable');
+	var tBody = myTable.getElementsByTagName('tbody')[0];
+	var newTR = document.createElement('tr');
+	var newTD = document.createElement('td');
+	newTD.innerHTML = 'This is a new row';
+	newTR.appendChild (newTD);
+	tBody.appendChild(newTR);
+} 
+</script>
+ <apex:form >
+        <apex:outputText value="Watch this counter: {!count}" id="counter"/>
+        <apex:actionPoller action="{!incrementCounter}" rerender="tablePanel" interval="5"/>
+        <br/>
+        <input type="button" value="Click Here" onClick="addNewRow();">
+        <br/>
+        <apex:outputPanel id="tablePanel">
+        <script>
+        addNewRow();
+        </script>
+        </apex:outputPanel>
+        <div>
+        
+        <table border="1" id="myTable">
+        <tbody>
+		<tr>
+		<td>row 1, cell 1</td>		
+		</tr>
+		<tr>
+		<td>row 2, cell 1</td>		
+		</tr>
+		</tbody>
+		</table> 
+		
+		</div>
+		
+  </apex:form>
+
+</apex:page>
