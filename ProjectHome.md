@@ -1,0 +1,1 @@
+The 'Chatter Live Chat App' is an application built on top of Salesforce Chatter. The application allows Support Reps to chat with visitors of their website to resolve issues and problems. The application automatically creates a Case record and stores the whole conversation in the form of Feed Posts for a Case record
